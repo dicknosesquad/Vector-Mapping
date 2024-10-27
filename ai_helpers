@@ -1,0 +1,17 @@
+from azure.ai.textanalytics import TextAnalyticsClient # type: ignore
+from azure.core.credentials import AzureKeyCredential # type: ignore
+from postgresml import Model # type: ignore
+from .config import Config # type: ignore
+
+# Azure setup
+azure_credential = AzureKeyCredential(Config.AZURE_CREDENTIAL_KEY)
+text_analytics_client = TextAnalyticsClient(endpoint=Config.AZURE_ENDPOINT, credential=azure_credential)
+
+# Machine Learning model for failure prediction
+ml_model = Model(name="hard_drive_failure_prediction")
+
+def generate_embedding(text: str):
+    documents = [text]
+    response = text_analytics_client.extract_key_phrases(documents)
+    key_phrases = response[0].key_phrases if response else []
+    return [len(phrase) for phrase in key_phrases][:384]
