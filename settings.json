@@ -1,0 +1,26 @@
+{
+    "python.pythonPath": "venv/bin/python", 
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=88"
+    ],
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.linting.pylintEnabled": false,
+    "sqltools.connections": [
+        {
+            "name": "SQLite",
+            "dialect": "SQLite",
+            "database": "${workspaceFolder}/content_calendar.db"
+        }
+    ],
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    }
+}
