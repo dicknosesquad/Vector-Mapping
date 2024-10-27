@@ -1,0 +1,9 @@
+FastAPI==0.70.0
+SQLAlchemy==1.4.27
+psycopg2-binary==2.9.1
+geoalchemy2==0.8.4
+pgvector==0.0.6
+postgresml==0.1.2
+pydantic==1.8.2
+azure-ai-textanalytics==5.1.0
+uvicorn==0.15.0
